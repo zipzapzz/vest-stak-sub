@@ -1,0 +1,75 @@
+type Staking_Claim {
+  id: ID!
+  user: String!
+  amount: BigInt!
+  poolIndex: BigInt!
+  address: String!
+  hash: String
+  timestamp: BigInt
+}
+
+type Staking_Deposit {
+  id: ID!
+  user: String!
+  amount: BigInt!
+  poolIndex: BigInt!
+  address: String!
+  hash: String
+  timestamp: BigInt
+}
+
+type Staking_Pool {
+  id: ID!
+  stakingToken: String!
+  rewardToken: String!
+  startTime: BigInt!
+  endTime: BigInt!
+  precision: BigInt!
+  totalReward: BigInt!
+  hash: String
+  timestamp: BigInt
+}
+
+type Staking_Withdraw {
+  id: ID!
+  user: String!
+  amount: BigInt!
+  poolIndex: BigInt!
+  address: String!
+  hash: String
+  timestamp: BigInt
+}
+
+type Vesting_Claim {
+  id: ID!
+  account: String!
+  amount: BigInt!
+  vesting: String!
+  address: String!
+  hash: String
+  timestamp: BigInt
+}
+
+type VestingFactory_FeesChange {
+  id: ID!
+  uniV2Router: String!
+  uniV2Pair: String!
+  feesUsd: BigInt!
+  companyWallet: String!
+  hash: String
+  timestamp: BigInt
+}
+
+type VestingFactory_Vesting {
+  id: ID!
+  creator: String!
+  address: String!
+  token: String!
+  merkleRoot: String!
+  tokenTotal: BigInt!
+  fee: BigInt!
+  claimed: BigInt!
+  hash: String
+  timestamp: BigInt
+}
+

@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: teamfinance-vesting-staking-subgraph
+description: Teamfinance Vesting and Staking Subgraph
+networks:
+- id: 137
+  start_block: 57491743
+  contracts:
+  - name: StakingPool
+    address:
+    - 0xd6A07b8065f9e8386A9a5bBA6A754a10A9CD1074
+    handler: src/EventHandlers.ts
+    events:
+    - event: Claim(address indexed user, uint256 amount, uint256 poolIndex)
+    - event: Deposit(address indexed user, uint256 amount, uint256 poolIndex)
+    - event: PoolCreated(address indexed stakingToken, address indexed rewardToken, uint256 startTime, uint256 endTime, uint256 precision, uint256 totalReward)
+    - event: Withdraw(address indexed user, uint256 amount, uint256 poolIndex)
+  - name: VestingFactory
+    address:
+    - 0xd1EBaa101867B3df136640C843d69a4646613fED
+    handler: src/EventHandlers.ts
+    events:
+    - event: FeesChange(address uniV2Router, address uniV2Pair, uint256 feesUsd, address companyWallet)
+    - event: VestingCreated(address indexed creator, address vestingAddr, address indexed token, bytes32 merkleRoot, uint256 totalAmount, uint256 fee)
+  - name: Vesting
+    handler: src/EventHandlers.ts
+    events:
+    - event: Claim(address indexed account, uint256 amount)
+rollback_on_reorg: false
+field_selection:
+  transaction_fields:
+    - "from"
+    - "to"
+    - "hash"
+    - "transactionIndex"
