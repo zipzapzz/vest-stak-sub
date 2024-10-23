@@ -3,7 +3,7 @@ name: teamfinance-vesting-staking-subgraph
 description: Teamfinance Vesting and Staking Subgraph
 networks:
 - id: 137
-  start_block: 57491743
+  start_block: 30715517
   contracts:
   - name: StakingPool
     address:
