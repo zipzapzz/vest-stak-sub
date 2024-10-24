@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
 name: tt-vest-stak-subgraph
-description: TT vest vs stak
+description: TT vesting vs staking
 networks:
 - id: 137
   start_block: 30715517
