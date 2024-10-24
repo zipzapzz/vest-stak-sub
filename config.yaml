@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
-name: teamfinance-vesting-staking-subgraph
-description: Teamfinance Vesting and Staking Subgraph
+name: tt-vest-stak-subgraph
+description: TT vest vs stak
 networks:
 - id: 137
   start_block: 30715517
@@ -28,7 +28,4 @@ networks:
 rollback_on_reorg: false
 field_selection:
   transaction_fields:
-    - "from"
-    - "to"
     - "hash"
-    - "transactionIndex"
